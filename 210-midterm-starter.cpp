@@ -239,8 +239,7 @@ int main() {
         prob = rand() % 100 + 1; // generates a random number between 1-100
         cout << "Time steop #" << i + 1 << endl;
         if (prob <= 40){
-            cout << names_array[list.]
-            list.pop_front();
+            cout << names_array[0];
         }
 
         if (prob <= 60){
@@ -251,16 +250,23 @@ int main() {
             cout << setw(4) << "" << names_array[names_iter] << " joins the line" << endl;
         }
 
-        if (prob <= 20){
-            // tail customer leaves
+        if (prob <= 20){ 
+            // end customer leaves the line
+            list.pop_back()
         }
 
         if (prob <= 10){
             // random customer leaves line
+            int random_number = rand() % names_iter;
+            list.delete_pos(random_number);
         }
 
         if (prob >= 90){
             // vip skips line and gets helped
+            names_iter++;
+            getline(fin, names_array[names_iter]);
+            cout << setw(4) << "" << names_array[names_iter] << " (VIP) joins the front of the line";
+            list.delete_pos();
         }
     }
 
