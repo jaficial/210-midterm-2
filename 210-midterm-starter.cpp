@@ -222,11 +222,32 @@ int main() {
     int names_iter = 0; // iterator for names array
 
     for (int i = 0; i < 5; i++){ // WORKS: fills the first 5 indexes of the names_array with names from the names.txt file
-        getline(fin, names_array[i]);
+        getline(fin, names_array[i]); // appends a new name to names_array 
+        list.push_back(i); // adds a new node to represent each customer
     }
-
+    // at this point: names array has 5 names, list has 5 nodes
     for (int i = 0; i < 20; i++){ // main for loop to begin the driver program
         prob = rand() % 100 + 1; // generates a random number between 1-100
+
+        if (prob <= 40){
+            // help the head customer out
+        }
+
+        if (prob <= 60){
+            // append customer to end of line
+        }
+
+        if (prob <= 20){
+            // tail customer leaves
+        }
+
+        if (prob <= 10){
+            // random customer leaves line
+        }
+
+        if (prob >= 90){
+            // vip skips line and gets helped
+        }
     }
 
     fin.close();
