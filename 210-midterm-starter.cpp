@@ -203,10 +203,20 @@ public:
     }
 };
 
+/* NOTES: Simulation runs for 20 time periods (20 iterations) 
+          First time period, add 5 customers to the line, use push back in for loop 5 times to add 5 nodes to dll
+    WHAT TO USE/DO: - Use doubly linked list to keep track on whos in line based off of position 
+                    - Before for loop, initialize string array to hold names of each person. (initialize for 101 strings, 100 possible names)
+                    - Use for loop from 0-19 for each time period 
+                    - Append push back 5 numbers each 
+                    - At beginning of each loop iteration, generate random probability number to decide what happens*/
+    
 int main() {
     //cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
-    
+    DoublyLinkedList list;
     int prob = rand() % 100 + 1; // random number generator between 1 and 100
+    string names_array[101];
     
+    list.~DoublyLinkedList(); // deallocates linked list
     return 0;
 }
