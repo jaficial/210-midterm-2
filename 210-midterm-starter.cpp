@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -219,22 +220,35 @@ int main() {
     DoublyLinkedList list;
     int prob; // random number generator between 1 and 100
     string names_array[101];
-    int names_iter = 0; // iterator for names array
+    int names_iter = 0; // iterator for names array and dll list
 
+    cout << "Store opens:" << endl;
     for (int i = 0; i < 5; i++){ // WORKS: fills the first 5 indexes of the names_array with names from the names.txt file
         getline(fin, names_array[i]); // appends a new name to names_array 
         list.push_back(i); // adds a new node to represent each customer
+        cout << setw(4) << "" << names_array[i] << " joins the line" << endl;
     }
-    // at this point: names array has 5 names, list has 5 nodes
-    for (int i = 0; i < 20; i++){ // main for loop to begin the driver program
-        prob = rand() % 100 + 1; // generates a random number between 1-100
+    cout << setw(4) << "Resulting line:" << endl;
+    for (int i = 0; i < 5; i++){
+        cout << setw(8) << names_array[i] << endl;
+    }
 
+    names_iter = 4; // dll list has nodes 0-4 (5 total)
+    // at this point: names array has 5 names, list has 5 nodes
+    for (int i = 1; i < 20; i++){ // main for loop to begin the driver program
+        prob = rand() % 100 + 1; // generates a random number between 1-100
+        cout << "Time steop #" << i + 1 << endl;
         if (prob <= 40){
-            // help the head customer out
+            cout << names_array[list.]
+            list.pop_front();
         }
 
         if (prob <= 60){
             // append customer to end of line
+            names_iter++;
+            list.push_back(names_iter);
+            getline(fin, names_array[names_iter]);
+            cout << setw(4) << "" << names_array[names_iter] << " joins the line" << endl;
         }
 
         if (prob <= 20){
